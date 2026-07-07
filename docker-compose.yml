@@ -1,0 +1,11 @@
+version: '4.80.0'
+
+services:
+  api-solid-pg:
+    image: bitnami/postgresql
+    ports:
+      - 5433:5432
+    environment:
+      - POSTGRESQL_USERNAME=jhonatas
+      - POSTGRESQL_PASSWORD=jhonatas
+      - POSTGRESQL_DATABASE=apisolid
