@@ -1,5 +1,6 @@
 import fastify from 'fastify'
-import { PrismaClient } from '@prisma/client'
+import { prisma } from './lib/prisma'
+import { registerBodySchema } from './schemas/register.schema'
 
 export const app = fastify()
 // docker ps -a - lista todos os containers
@@ -9,10 +10,15 @@ export const app = fastify()
 // npx prisma studio - abre o prisma studio para visualizar as tabelas e os dados
 // docker compose up -d - inicia o container do Postgres com o Docker Compose
 
-const prisma = new PrismaClient()
-prisma.user.create({
-  data: {
-    email: 'teste@teste.com',
-    name: 'Teste',
-  },
+app.post('/users', async (request, reply) => {
+  const { name, email, password } = registerBodySchema.parse(request.body)
+
+  await prisma.user.create({
+    data: {
+      name,
+      email,
+      password_hash: password,
+    },
+  })
+  return reply.status(201).send()
 })
