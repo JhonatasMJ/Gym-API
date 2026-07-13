@@ -1,4 +1,4 @@
-import { PrismaUsersRepository } from '@/repositories/prisma-users-repository'
+import { PrismaUsersRepository } from '@/repositories/prisma/prisma-users-repository'
 import { registerBodySchema } from '@/schemas/register.schema'
 import { RegisterUseCase } from '@/services/register'
 import type { FastifyReply, FastifyRequest } from 'fastify'
