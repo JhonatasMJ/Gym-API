@@ -62,7 +62,7 @@ describe('Register Service', () => {
     })
 
     // Eu espero que o método execute lance um erro do tipo UserAlreadyExistsError
-    expect(() =>
+    await expect(() =>
       registerUseCase.execute({
         name: 'John Doe',
         email,

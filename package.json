@@ -11,8 +11,9 @@
     "lint:fix": "eslint . --ext .ts --fix",
     "format": "prettier --write .",
     "test": "vitest run",
-    "text:watch": "vitest"
-
+    "text:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,8 @@
     "@rocketseat/eslint-config": "2.2.2",
     "@types/bcryptjs": "2.4.6",
     "@types/node": "^26.1.0",
+    "@vitest/coverage-v8": "4.1.10",
+    "@vitest/ui": "4.1.10",
     "eslint": "8.57.1",
     "prettier": "^3.2.5",
     "prisma": "4.10.1",
